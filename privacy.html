@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INDRA 개인정보 처리방침</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1c1c1e;
+    --muted: #6b6b70;
+    --rule: #e5e5ea;
+    --accent: #0088ff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e0e11;
+      --fg: #ececf1;
+      --muted: #9a9aa2;
+      --rule: #2a2a30;
+      --accent: #4da6ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 3rem 1.25rem 6rem;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.75 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+          "Pretendard", "Segoe UI", sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 42rem; margin: 0 auto; }
+  h1 { font-size: 1.9rem; line-height: 1.3; margin: 0 0 .4rem; letter-spacing: -.02em; }
+  h2 {
+    font-size: 1.15rem; margin: 2.75rem 0 .75rem; letter-spacing: -.01em;
+    padding-top: 1.5rem; border-top: 1px solid var(--rule);
+  }
+  .updated { color: var(--muted); font-size: .9rem; margin: 0 0 2rem; }
+  .lede { font-size: 1.05rem; }
+  p { margin: 0 0 1rem; }
+  ul { margin: 0 0 1rem; padding-left: 1.3rem; }
+  li { margin-bottom: .4rem; }
+  strong { font-weight: 650; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: .9em; background: var(--rule); padding: .1em .35em; border-radius: 4px;
+  }
+  a { color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; margin: 0 0 1rem; font-size: .95rem; }
+  th, td { text-align: left; padding: .55rem .6rem; border-bottom: 1px solid var(--rule); }
+  th { font-weight: 650; }
+  .wrap { overflow-x: auto; }
+  footer {
+    margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--rule);
+    color: var(--muted); font-size: .9rem;
+  }
+</style>
+</head>
+<body>
+<main>
+
+<h1>INDRA 개인정보 처리방침</h1>
+<p class="updated">최종 수정일: 2026년 8월 3일</p>
+
+<p class="lede">INDRA는 서버가 없습니다. 앱이 다루는 정보는 모두 사용자의 iPhone 안에
+있고, 개발자는 어떤 정보도 수집하거나 전송받지 않습니다. 아래는 그 사실을 구체적으로
+적은 것입니다.</p>
+
+<h2>1. 수집하지 않는 정보</h2>
+<ul>
+  <li><strong>계정이 없습니다.</strong> 회원가입과 로그인이 없으며 이름, 이메일,
+      전화번호, 생년월일을 묻지 않습니다.</li>
+  <li><strong>분석 도구와 광고를 쓰지 않습니다.</strong> 사용 기록 분석 SDK, 광고 SDK,
+      크래시 리포터, 그 밖의 제3자 SDK를 하나도 넣지 않았습니다.</li>
+  <li><strong>추적하지 않습니다.</strong> 다른 회사의 앱이나 웹사이트에서의 활동과
+      연결하는 추적을 하지 않습니다.</li>
+</ul>
+
+<h2>2. 앱이 다루는 정보와 저장 위치</h2>
+<p>Apple Music 접근을 허용하면 INDRA는 사용자 본인의 다음 신호를 읽습니다.</p>
+<ul>
+  <li>최근 재생 목록</li>
+  <li>Replay와 Heavy Rotation</li>
+  <li>보관함에 저장한 곡, 사용자가 편집할 수 있는 플레이리스트의 수록 관계</li>
+</ul>
+<p>읽은 내용에서 다음을 기기 안 저장소(SwiftData)에 보관합니다.</p>
+<ul>
+  <li>곡·앨범·아티스트의 제목과 식별자(Apple Music 카탈로그 ID, 보관함 ID, ISRC)</li>
+  <li>아트워크 이미지 주소와 그 대표 색</li>
+  <li>각 신호를 관측한 시각, 그 관측에서 확인한 청취 근거</li>
+  <li>위 근거로 계산한 순위 결과</li>
+</ul>
+<p>탑스터의 앨범 배치와 토너먼트 진행 상태는 <code>UserDefaults</code>에 저장합니다.</p>
+<p><strong>이 정보는 기기를 떠나지 않습니다.</strong> 개발자의 서버로 보내지 않으며,
+iCloud로 동기화하지도 않습니다.</p>
+
+<h2>3. 외부와 주고받는 통신</h2>
+<p>INDRA가 네트워크를 쓰는 곳은 두 군데뿐입니다.</p>
+<ul>
+  <li><strong>Apple Music API(<code>api.music.apple.com</code>)</strong> — 위 신호를
+      받아오기 위해 Apple에 요청을 보냅니다. 이 통신은 Apple의 MusicKit이 처리하며
+      Apple의 개인정보 처리방침을 따릅니다.</li>
+  <li><strong>앨범 아트워크 이미지</strong> — Apple이 알려 준 주소에서 이미지를
+      내려받습니다.</li>
+</ul>
+<p>이 밖의 어떤 서버와도 통신하지 않습니다. 개발자가 운영하는 서버는 존재하지
+않습니다.</p>
+
+<h2>4. 공유 기능</h2>
+<p>탑스터와 토너먼트 결과는 이미지 카드로 만들어 공유할 수 있습니다.</p>
+<ul>
+  <li>이미지는 사용자가 직접 공유를 눌렀을 때만 만들어지며, 사용자가 고른 앱으로만
+      전달됩니다.</li>
+  <li>인스타그램 스토리로 보내는 경우 이미지는 iOS 페이스트보드를 거쳐 인스타그램에
+      전달되고 5분 뒤 만료됩니다. 전달된 다음의 처리는 인스타그램의 개인정보
+      처리방침을 따릅니다.</li>
+  <li>인스타그램이 설치되어 있는지 확인하기 위해 앱 스킴 조회를 하지만, 그 결과는
+      버튼을 보일지 정하는 데만 쓰고 저장하지 않습니다.</li>
+</ul>
+
+<h2>5. 알림</h2>
+<p>백그라운드 갱신이 성공했을 때 기기 안에서 만드는 로컬 알림만 보냅니다. 원격 푸시
+알림을 쓰지 않으므로 기기 토큰을 만들지도, 수집하지도 않습니다.</p>
+
+<h2>6. 권한</h2>
+<div class="wrap">
+<table>
+  <thead><tr><th>권한</th><th>필요 여부</th><th>쓰는 곳</th></tr></thead>
+  <tbody>
+    <tr><td>Apple Music</td><td>필수</td><td>분석할 청취 신호를 읽기 위해</td></tr>
+    <tr><td>알림</td><td>선택</td><td>자동 갱신이 끝났음을 알리기 위해</td></tr>
+    <tr><td>백그라운드 앱 새로고침</td><td>선택</td>
+        <td>앱이 꺼져 있는 동안 최근 재생을 관측하기 위해</td></tr>
+  </tbody>
+</table>
+</div>
+<p>세 가지 모두 iOS 설정 앱에서 언제든 철회할 수 있습니다. 철회해도 이미 기기에 쌓인
+기록은 그대로 남습니다.</p>
+
+<h2>7. 보관 기간과 삭제</h2>
+<p>저장된 정보는 앱 안에만 있으므로 <strong>앱을 삭제하면 함께 지워집니다.</strong>
+개발자가 따로 보관하는 사본은 없으며, 따라서 개발자에게 삭제를 요청할 대상도
+없습니다.</p>
+<p>앱의 <code>데이터</code> 탭에서 어떤 신호를 언제 수집했고 무엇이 저장되어 있는지
+확인할 수 있습니다.</p>
+
+<h2>8. 아동의 개인정보</h2>
+<p>INDRA는 아동을 대상으로 하지 않으며, 아동으로부터 개인정보를 수집하지 않습니다.</p>
+
+<h2>9. 방침의 변경</h2>
+<p>내용이 바뀌면 이 문서의 최종 수정일을 갱신합니다. 수집 범위가 늘어나는 변경이라면
+앱 안에서 따로 알립니다.</p>
+
+<h2>10. 문의</h2>
+<p><a href="mailto:makeyourworldatindra@gmail.com">makeyourworldatindra@gmail.com</a></p>
+
+<footer>
+  <p><a href="./">INDRA 지원 페이지</a></p>
+  <p>INDRA는 Apple Inc.와 제휴하거나 Apple의 보증을 받은 앱이 아닙니다.
+     Apple Music은 Apple Inc.의 상표입니다.</p>
+</footer>
+
+</main>
+</body>
+</html>
